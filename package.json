@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Revelat.io dev tool",
   "bin": {
-    "rvl": "./src/index.js"
+    "rvl-dev": "./src/index.js"
   },
   "scripts": {
     "lint": "standard"
