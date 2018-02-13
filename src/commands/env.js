@@ -7,9 +7,9 @@ const axios = require('axios')
 const fsReadFile = Promise.promisify(fs.readFile)
 const fsWriteFile = Promise.promisify(fs.writeFile)
 
-function createDotEnv(props) {
+function createDotEnv (props) {
   return Object.keys(props)
-    .reduce((prev, key) => prev.concat([`${key}=${props[key]}`]),[])
+    .reduce((prev, key) => prev.concat([`${key}=${props[key]}`]), [])
     .join('\n')
 }
 
