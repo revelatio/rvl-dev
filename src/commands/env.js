@@ -13,7 +13,7 @@ function createDotEnv (props) {
     .join('\n')
 }
 
-function getEnv () {
+function getEnv (channel) {
   const folder = path.join(os.homedir(), '.rvl')
   const dotEnv = path.join(process.cwd(), '.env')
   const authFile = path.join(folder, 'auth')
@@ -27,7 +27,7 @@ function getEnv () {
       const pkg = JSON.parse(pkgStr)
 
       return axios({
-        url: `http://www.revelat.io/api/rvl-dev/env/${pkg.name}`,
+        url: `http://www.revelat.io/api/rvl-dev/env/${pkg.name}/${channel || 'development'}`,
         method: 'GET',
         headers: { token: token }
       })
@@ -44,7 +44,7 @@ function getEnv () {
 module.exports = {
   env: program => {
     program
-      .command('env')
+      .command('env [channel]')
       .description('Retrieves development environment variables and stores them in .env file. It uses local package.json file to get repo/project.')
       .action(getEnv)
   }

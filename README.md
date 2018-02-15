@@ -10,9 +10,9 @@ Stores Revelat.io auth token needed for most CLI operations. You can
 find your token at `~/.rvl/auth`
 
 ## Env
-```$ rvl-dev env```
+```$ rvl-dev env [channel]```
 
 Retrieves development environment variables and stores them in `.env`
 file. It uses local package.json file to get repo/project.
 
-This command only retrieves development environment vars.
+**This command only retrieves development environment vars.**
